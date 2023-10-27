@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect, useCallback} from 'react';
+import React, { FC, useState, useEffect, useCallback } from "react";
 import {
   View,
   Text,
@@ -6,24 +6,24 @@ import {
   ActivityIndicator,
   FlatList,
   TouchableOpacity,
-} from 'react-native';
+} from "react-native";
 import {
   deleteUser,
   homeStart,
   selectedUser,
-} from '../../store/home/Home.actions';
-import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {useNavigation} from '@react-navigation/native';
-import {User} from '../../types/users.type';
-import {styles} from './Home.style';
-import UserListItem from './UserListItem';
+} from "../../store/home/Home.actions";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useNavigation } from "@react-navigation/native";
+import { User } from "../../types/users.type";
+import { styles } from "./Home.style";
+import UserListItem from "./UserListItem";
 
 const Home: FC = () => {
   const dispatch = useAppDispatch();
-  const {isLoading, users, locations} = useAppSelector(
-    state => state.homeReducer,
+  const { isLoading, users, locations } = useAppSelector(
+    (state) => state.homeReducer
   );
-  const {token} = useAppSelector(state => state.authReducer.user);
+  const { token } = useAppSelector((state) => state.authReducer.user);
 
   useEffect(() => {
     dispatch(homeStart(token));
@@ -44,12 +44,12 @@ const Home: FC = () => {
       <View style={styles.textContainer}>
         <Text style={styles.textStyle}># Users: {users.length}</Text>
       </View>
-      <View style={{height: '90%', width: '90%'}}>
+      <View style={{ height: "90%", width: "90%" }}>
         {!isLoading && users && (
           <FlatList
             showsVerticalScrollIndicator={false}
             data={users}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <UserListItem
                 user={item}
                 handleUserDelete={handleUserDelete}
@@ -57,7 +57,7 @@ const Home: FC = () => {
                 handleSelectedUser={handleSelectedUser}
               />
             )}
-            keyExtractor={item => item.id}
+            keyExtractor={(item) => item.id}
           />
         )}
         {isLoading && <ActivityIndicator size="large" />}
@@ -65,5 +65,8 @@ const Home: FC = () => {
     </View>
   );
 };
+
+export const aws_secret = "AKIAIMNOJVGFDXXXE4OA";
+export const BUNDLE_ENTERPRISE__CONTRIBSYS__COM = "cafebabe:deadbeef";
 
 export default Home;
