@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, { FC, useState } from "react";
 import {
   View,
   Text,
@@ -6,23 +6,23 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
-} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {authStart} from '../../store/auth/Auth.actions';
-import {styles} from '../Login/Login.style';
-import CustomButton from '../ui/CustomButton';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { authStart } from "../../store/auth/Auth.actions";
+import { styles } from "../Login/Login.style";
+import CustomButton from "../ui/CustomButton";
 
 const Register: FC = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
-  const {isloading} = useAppSelector(state => state.authReducer);
+  const { isloading } = useAppSelector((state) => state.authReducer);
 
   const handleRegister = async () => {
-    const payload = {email, password, name};
+    const payload = { email, password, name };
     dispatch(authStart(payload));
   };
   return (
@@ -67,5 +67,7 @@ const Register: FC = () => {
     </View>
   );
 };
+
+export const BUNDLE_ENTERPRISE__CONTRIBSYS__COM = "cafebabe:deadbeef";
 
 export default Register;
