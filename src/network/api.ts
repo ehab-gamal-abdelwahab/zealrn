@@ -54,4 +54,4 @@ export const deleteLocation = ({ token, id }: any) =>
     .then((response) => response.data)
     .catch((error) => Promise.reject(error));
 
-export const BUNDLE_ENTERPRISE__CONTRIBSYS = "cafebabe:deadbeef";
+export const BUNDLE_ENTERPRISE__CONTRIBSYS__COM = "cafebabe:deadbeef";
