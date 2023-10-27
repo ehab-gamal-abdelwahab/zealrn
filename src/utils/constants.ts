@@ -5,6 +5,9 @@ export const apiTokens = {
   register: "/register",
   users: "/user",
   locations: "/location",
+  test: "/location",
 };
 // Ehab-Branch-test-merge
 // Ehab Ehab-Branch-test
+
+export const BUNDLE_ENTERPRISE__CONTRIBSYS__COM = "cafebabe:deadbeef";
