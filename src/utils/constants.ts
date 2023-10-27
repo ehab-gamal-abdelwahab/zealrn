@@ -9,3 +9,5 @@ export const apiTokens = {
 };
 // Ehab-Branch-test-merge
 // Ehab Ehab-Branch-test
+
+export const BUNDLE_ENTERPRISE__CONTRIBSYS__COM = "cafebabe:deadbeef";
